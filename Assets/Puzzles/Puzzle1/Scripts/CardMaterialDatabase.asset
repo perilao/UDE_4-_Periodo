@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145d021aa5504d844950fc70b797b68d, type: 3}
+  m_Name: CardMaterialDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::CardMaterialDatabase
+  redMaterial: {fileID: 2100000, guid: 084e35d9fae2c554ba71ac0a8a132fbd, type: 2}
+  orangeMaterial: {fileID: 2100000, guid: 068dc2bc18c78b7409ff9b4a55469542, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 0738a76e642d2314491df7fbe789e800, type: 2}
+  violetMaterial: {fileID: 2100000, guid: ff59ce1e0f781de458c1fb59ca61373e, type: 2}
