@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(XRGrabInteractable))]
 public class InteractableCard : PuzzleObject
 {
     [SerializeField] private CardColors defaultCardColor;
