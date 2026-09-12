@@ -1,0 +1,75 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Puzzle3Manager : BasePuzzle
+{
+    [SerializeField] private List<PuzzleToggleButton> puzzleButtons = new();
+
+    void Start()
+    {
+        InitializePuzzle();
+    }
+
+    public override void InitializePuzzle()
+    {
+        IsCompleted = false;
+
+        SetupButtons();
+    }
+
+    public override void CompletePuzzle()
+    {
+        if (IsCompleted)
+            return;
+
+        IsCompleted = true;
+
+        Debug.Log("Puzzle 3 concluído!");
+    }
+
+    public override void ResetPuzzle()
+    {
+        IsCompleted = false;
+    }
+
+    private void SetupButtons()
+    {
+        foreach (PuzzleToggleButton button in puzzleButtons)
+        {
+            if (button == null)
+                continue;
+
+            button.StateChanged -= OnButtonStateChanged;
+            button.StateChanged += OnButtonStateChanged;
+        }
+    }
+
+    private void OnButtonStateChanged(PuzzleToggleButton changedButton)
+    {
+        if (CheckPuzzle())
+            CompletePuzzle();
+    }
+
+    private bool CheckPuzzle()
+    {
+        if (puzzleButtons.Count == 0)
+            return false;
+
+        foreach (PuzzleToggleButton button in puzzleButtons)
+        {
+            if (button == null || !button.IsCorrect)
+                return false;
+        }
+
+        return true;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (PuzzleToggleButton button in puzzleButtons)
+        {
+            if (button != null)
+                button.StateChanged -= OnButtonStateChanged;
+        }
+    }
+}
