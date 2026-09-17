@@ -24,12 +24,9 @@ public class Puzzle2Manager : BasePuzzle
 
     public override void CompletePuzzle()
     {
-        if (IsCompleted)
-            return;
+        base.CompletePuzzle();
 
-        IsCompleted = true;
-
-        Debug.Log("Puzzle 2 concluído");
+        Debug.Log("Puzzle 2 concluído!");
     }
 
     private void SetupPictureSockets()

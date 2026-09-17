@@ -19,10 +19,7 @@ public class Puzzle3Manager : BasePuzzle
 
     public override void CompletePuzzle()
     {
-        if (IsCompleted)
-            return;
-
-        IsCompleted = true;
+        base.CompletePuzzle();
 
         Debug.Log("Puzzle 3 concluído!");
     }

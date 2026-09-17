@@ -19,12 +19,9 @@ public class Puzzle1Manager : BasePuzzle
 
      public override void CompletePuzzle()
      {
-          if (IsCompleted)
-               return;
+          base.CompletePuzzle();
 
-          IsCompleted = true;
-
-          Debug.Log("Puzzle 1 concluído");
+          Debug.Log("Puzzle 1 concluído!");
      }
 
      public override void ResetPuzzle()
