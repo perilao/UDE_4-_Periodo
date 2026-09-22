@@ -3021,8 +3021,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9e96f165bd24147bef3aeaf4db9900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  initialPuzzle: {fileID: 722628670}
-  finalPuzzle: {fileID: 993502304}
+  PuzzlesToDebbug:
+  - {fileID: 722628670}
+  - {fileID: 351027253}
+  - {fileID: 993502304}
 --- !u!4 &1572244605
 Transform:
   m_ObjectHideFlags: 0
