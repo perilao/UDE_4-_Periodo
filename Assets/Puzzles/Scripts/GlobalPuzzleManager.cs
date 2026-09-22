@@ -19,10 +19,7 @@ public class GlobalPuzzleManager : MonoBehaviour
     private void SwitchPuzzle(int index)
     {
         if (index < 0 || index >= PuzzleManagers.Count)
-        {
-            Debug.LogError($"Invalid puzzle index: {index}");
             return;
-        }
 
         CurrentPuzzle.PuzzleCompleted -= PuzzleCompleted;
 

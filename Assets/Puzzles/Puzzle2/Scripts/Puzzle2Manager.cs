@@ -5,14 +5,9 @@ public class Puzzle2Manager : BasePuzzle
 {
     [SerializeField] private List<PictureSocket> pictureSockets = new();
 
-    void Start()
-    {
-        InitializePuzzle();
-    }
-
     public override void InitializePuzzle()
     {
-        IsCompleted = false;
+        base.InitializePuzzle();
 
         SetupPictureSockets();
     }

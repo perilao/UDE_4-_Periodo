@@ -5,14 +5,9 @@ public class Puzzle1Manager : BasePuzzle
 {
      [SerializeField] private List<CardSocket> cardSockets = new();
 
-     void Start()
-     {
-          InitializePuzzle();
-     }
-
      public override void InitializePuzzle()
      {
-          IsCompleted = false;
+          base.InitializePuzzle();
 
           SetupCardSockets();
      }

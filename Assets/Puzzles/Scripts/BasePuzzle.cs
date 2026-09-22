@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class BasePuzzle : MonoBehaviour
 {
+    public event Action<BasePuzzle> PuzzleInitialized;
     public event Action<BasePuzzle> PuzzleCompleted;
 
     public bool IsCompleted { get; protected set; } = false;
@@ -12,7 +13,12 @@ public abstract class BasePuzzle : MonoBehaviour
     [SerializeField] private GameObject puzzleRoom;
     public GameObject PuzzleRoom => puzzleRoom;
 
-    public abstract void InitializePuzzle();
+    public virtual void InitializePuzzle()
+    {
+        IsCompleted = false;
+        
+        PuzzleInitialized?.Invoke(this);
+    }
 
     public abstract void ResetPuzzle();
 

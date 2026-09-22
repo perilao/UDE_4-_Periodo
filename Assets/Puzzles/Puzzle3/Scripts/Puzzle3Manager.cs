@@ -5,14 +5,9 @@ public class Puzzle3Manager : BasePuzzle
 {
     [SerializeField] private List<PuzzleToggleButton> puzzleButtons = new();
 
-    void Start()
-    {
-        InitializePuzzle();
-    }
-
     public override void InitializePuzzle()
     {
-        IsCompleted = false;
+        base.InitializePuzzle();
 
         SetupButtons();
     }
