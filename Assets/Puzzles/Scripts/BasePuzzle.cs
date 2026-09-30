@@ -10,9 +10,6 @@ public abstract class BasePuzzle : MonoBehaviour
 
     public int PuzzleID { get; private set; }
 
-    [SerializeField] private GameObject puzzleRoom;
-    public GameObject PuzzleRoom => puzzleRoom;
-
     public virtual void InitializePuzzle()
     {
         IsCompleted = false;
@@ -30,4 +27,8 @@ public abstract class BasePuzzle : MonoBehaviour
         IsCompleted = true;
         PuzzleCompleted?.Invoke(this);
     }
+
+    public abstract void ActivatePuzzle();
+
+    public abstract void DisablePuzzle();
 }

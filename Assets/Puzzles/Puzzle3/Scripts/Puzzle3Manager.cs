@@ -64,4 +64,14 @@ public class Puzzle3Manager : BasePuzzle
                 button.StateChanged -= OnButtonStateChanged;
         }
     }
+
+    public override void ActivatePuzzle()
+    {
+        puzzleButtons.ForEach(button => button.gameObject.SetActive(true));
+    }
+
+    public override void DisablePuzzle()
+    {
+        puzzleButtons.ForEach(button => button.gameObject.SetActive(false));
+    }
 }

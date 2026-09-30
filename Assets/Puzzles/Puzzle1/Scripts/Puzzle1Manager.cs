@@ -105,4 +105,14 @@ public class Puzzle1Manager : BasePuzzle
                socket.CardRemoved -= OnCardRemoved;
           }
      }
+
+     public override void ActivatePuzzle()
+     {
+          cardSockets.ForEach(socket => socket.gameObject.SetActive(true));
+     }
+
+     public override void DisablePuzzle()
+     {
+          cardSockets.ForEach(socket => socket.gameObject.SetActive(false));
+     }
 }

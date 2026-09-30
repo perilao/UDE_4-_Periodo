@@ -14,6 +14,12 @@ public class GlobalPuzzleManager : MonoBehaviour
     void Start()
     {
         SwitchPuzzle(0);
+
+        foreach (BasePuzzle puzzle in PuzzleManagers)
+        {
+            if (puzzle != CurrentPuzzle) 
+                puzzle.DisablePuzzle();
+        }
     }
 
     private void SwitchPuzzle(int index)
@@ -21,13 +27,15 @@ public class GlobalPuzzleManager : MonoBehaviour
         if (index < 0 || index >= PuzzleManagers.Count)
             return;
 
+        CurrentPuzzle.DisablePuzzle();
+
         CurrentPuzzle.PuzzleCompleted -= PuzzleCompleted;
 
         CurrentPuzzleIndex = index;
 
-        ReparentPlayer( CurrentPuzzle.PuzzleRoom.transform );
-
         CurrentPuzzle.InitializePuzzle();
+
+        CurrentPuzzle.ActivatePuzzle();
 
         CurrentPuzzle.PuzzleCompleted += PuzzleCompleted;
     }
@@ -41,14 +49,5 @@ public class GlobalPuzzleManager : MonoBehaviour
         }
 
         SwitchPuzzle(CurrentPuzzleIndex + 1);
-    }
-
-    private void ReparentPlayer(Transform newParent, bool keepLocalPosition = true)
-    {
-        Vector3 prevPlayerTransform = Player.transform.localPosition;
-
-        Player.transform.parent = newParent;
-
-        Player.transform.localPosition = prevPlayerTransform;
     }
 }

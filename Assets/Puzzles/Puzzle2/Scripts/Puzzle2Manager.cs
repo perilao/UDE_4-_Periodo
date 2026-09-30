@@ -68,4 +68,14 @@ public class Puzzle2Manager : BasePuzzle
 
         return true;
     }
+
+    public override void ActivatePuzzle()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public override void DisablePuzzle()
+    {
+        gameObject.SetActive(false);
+    }
 }
