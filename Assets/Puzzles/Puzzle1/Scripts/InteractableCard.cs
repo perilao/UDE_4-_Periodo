@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class InteractableCard : PuzzleObject
 {
+    public XRGrabInteractable GrabInteractable {get; private set;}
     [SerializeField] private CardColors defaultCardColor;
     public CardColors DefaultCardColor => defaultCardColor;
     public CardColors CurrentCardColor { get; private set; }
@@ -25,6 +26,8 @@ public class InteractableCard : PuzzleObject
     void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+
+        GrabInteractable = GetComponent<XRGrabInteractable>();
     }
 
     void Start()

@@ -3,14 +3,21 @@ using UnityEngine;
 
 public class GlobalPuzzleManager : MonoBehaviour
 {
-    [SerializeField] private GameObject Player;
-
     [SerializeField] private List<BasePuzzle> PuzzleManagers = new();
 
     private int CurrentPuzzleIndex = 0;
 
     public BasePuzzle CurrentPuzzle => PuzzleManagers[CurrentPuzzleIndex];
     
+    void Awake()
+    {
+        foreach (BasePuzzle puzzle in PuzzleManagers)
+        {
+            if (puzzle == null)
+                PuzzleManagers.Remove(puzzle);
+        }
+    }
+
     void Start()
     {
         SwitchPuzzle(0);

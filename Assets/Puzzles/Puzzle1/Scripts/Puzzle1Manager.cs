@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Puzzle1Manager : BasePuzzle
 {
+     [SerializeField] private Player Player;
      [SerializeField] private List<CardSocket> cardSockets = new();
+     [SerializeField] private List<InteractableCard> InteractableCards = new();
 
      public override void InitializePuzzle()
      {
@@ -108,11 +110,12 @@ public class Puzzle1Manager : BasePuzzle
 
      public override void ActivatePuzzle()
      {
-          cardSockets.ForEach(socket => socket.gameObject.SetActive(true));
+          Player.EnableBothHandsInteractionMasks("Cards");
      }
 
      public override void DisablePuzzle()
      {
-          cardSockets.ForEach(socket => socket.gameObject.SetActive(false));
+          print("Puzzle 1 desativado");
+          Player.DisableBothHandsInteractionMasks("Cards");
      }
 }

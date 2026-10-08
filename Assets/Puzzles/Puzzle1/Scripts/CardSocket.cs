@@ -26,23 +26,23 @@ public class CardSocket : PuzzleObject
 
     public bool IsCorrect => CurrentCard != null && CurrentCard.CurrentCardColor == TargetCardCurrentColor;
 
-    private XRSocketInteractor socketInteractor;
+    public XRSocketInteractor SocketInteractor { get; private set; }
 
     private void Awake()
     {
-        socketInteractor = GetComponent<XRSocketInteractor>();
+        SocketInteractor = GetComponent<XRSocketInteractor>();
     }
 
     private void OnEnable()
     {
-        socketInteractor.selectEntered.AddListener(OnCardEntered);
-        socketInteractor.selectExited.AddListener(OnCardExited);
+        SocketInteractor.selectEntered.AddListener(OnCardEntered);
+        SocketInteractor.selectExited.AddListener(OnCardExited);
     }
 
     private void OnDisable()
     {
-        socketInteractor.selectEntered.RemoveListener(OnCardEntered);
-        socketInteractor.selectExited.RemoveListener(OnCardExited);
+        SocketInteractor.selectEntered.RemoveListener(OnCardEntered);
+        SocketInteractor.selectExited.RemoveListener(OnCardExited);
     }
 
     private void OnCardEntered(SelectEnterEventArgs args)
